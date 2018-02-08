@@ -1,34 +1,20 @@
 public class UserTest {
     public static void main(String[] args) {
 
-        User[] users = new User[6];
-        users[0] = new User("Jacek",31);
-        users[1] = new User("Karol",24);
-        users[2] = new User("Alicja",43);
+        User[] users = new User[3];
 
-        boolean iSduplicate = false;
+        for(int i=0; i<users.length; i++){
 
-        User tempUser;
+            User tempUser = null;
+            do {
+                tempUser = UsersSet.inputUser();
+            } while (UsersSet.contains(users, tempUser));
 
-        do {
-            tempUser = User.addUser();
-            iSduplicate = false;
-            for (int i = 0; i < users.length; i++) {
-                if (tempUser.equals(users[i])) {
-                    iSduplicate = true;
-                    break;
-                }
-            }
-        } while (iSduplicate == true);
-
-        for (int i = 0; i < users.length; i++) {
-            if (users[i] == null){
-                users[i] = tempUser;
-                System.out.println(tempUser.toString());
-                System.out.println(i);
-                break;
-            }
+            users[i] = tempUser;
         }
 
+        for(User usersObj : users){
+            System.out.println(usersObj.toString());
+        }
     }
 }
