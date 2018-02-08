@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class User {
     private String name;
     private int age;
@@ -13,16 +11,8 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     @Override
@@ -50,12 +40,6 @@ public class User {
         return true;
     }
 
-    public static User addUser(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Podaj imię i wiek:");
-        return new User(sc.nextLine(), sc.nextInt());
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -63,4 +47,5 @@ public class User {
                 ", age=" + age +
                 '}';
     }
+
 }
