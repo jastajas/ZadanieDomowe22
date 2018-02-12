@@ -5,12 +5,13 @@ public class UserTest {
 
         for(int i=0; i<users.length; i++){
 
-            User tempUser = null;
-            do {
-                tempUser = UsersSet.inputUser();
-            } while (UsersSet.contains(users, tempUser));
+            User tempUser = UsersSet.inputUser();
 
-            users[i] = tempUser;
+            if (!(UsersSet.contains(users, tempUser))){
+                users[i] = tempUser;
+            } else {
+                i--;
+            }
         }
 
         for(User usersObj : users){
